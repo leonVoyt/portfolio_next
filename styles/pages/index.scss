@@ -1,0 +1,80 @@
+.index {
+  min-height: calc(100vh - 180px);
+  background-image: url(../../assets/Abstract.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .index__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    strong {
+      color: $accent;
+    }
+    h1 {
+      @include fontS(30px, 30);
+      text-align: center;
+      margin: 0;
+    }
+    p {
+      margin: 0;
+      @include fontS(20px, 20);
+      text-align: center;
+
+      //   font-size: 40px;
+
+      margin-bottom: 10px;
+    }
+    & > span {
+      @include fontS(12px, 6);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    & > button {
+      width: fit-content;
+      background-color: $accent;
+      border-radius: 5px;
+      border: 0;
+      padding: 0.5rem 0.5rem;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
+.projects {
+  min-height: calc(100vh - 150px);
+  text-align: center;
+  background-color: #252526;
+  h1 {
+    color: $accent;
+    padding-top: 1rem;
+  }
+  .container {
+    flex-wrap: wrap;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.projects__item {
+  width: 300px;
+  height: 300px;
+}
+.projects__item--image {
+  width: 100%;
+  border-radius: 20px;
+  height: 80%;
+  background-color: beige;
+  box-shadow: -15px -15px 1px rgba($color: #000000, $alpha: 0.5);
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+}

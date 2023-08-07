@@ -1,0 +1,5 @@
+$accent: #5c62ec;
+$columns: 12;
+@mixin fontS($min, $max) {
+  font-size: calc($min + $max * (100vw / 1280));
+}
