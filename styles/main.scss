@@ -26,7 +26,7 @@ html {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  column-gap: 30px;
+  column-gap: 40px;
   row-gap: 20px;
   flex-wrap: wrap;
 }
@@ -110,5 +110,40 @@ html {
 
   .container {
     min-height: fit-content;
+  }
+}
+@media (max-width: 520px) {
+  .navbar__row {
+    column-gap: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    padding-inline: 1rem;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0;
+  }
+  .navbar__navigation {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    align-items: flex-start;
+    column-gap: 0;
+    & > a:hover {
+      border-bottom: 3px solid $accent;
+    }
+  }
+  .navbar__row {
+    column-gap: 90px;
+  }
+}
+@media (max-width: 678px) {
+  .navbar__navigation {
+    margin-right: auto;
   }
 }
