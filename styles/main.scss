@@ -1,20 +1,34 @@
 @import './pages/404.scss';
 @import './vars.scss';
 @import './pages/index.scss';
+@import './pages/projects.scss';
+@import './pages/skills.scss';
+@import './pages/contacts.scss';
+
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Poppins:wght@400;500;700&display=swap');
 body,
 html {
   margin: 0;
   padding: 0;
   background-color: #171718;
+  background-color: $white;
+
   color: white;
   font-size: 16px;
   font-family: 'DM Sans', sans-serif;
+}
+h1 {
+  color: $accent;
+  @include fontS(30px, 30);
+  text-align: center;
+  margin: 0;
 }
 .navbar {
   border-bottom: 1px solid #26292d;
   padding: 20px 0;
   letter-spacing: normal;
+  background-color: $dark;
+  color: $white;
   a {
     color: white;
     text-decoration: none;
@@ -34,6 +48,7 @@ html {
   margin: 0 auto;
   padding: 0 15px;
   width: 80%;
+  height: 100%;
 }
 .navbar__logo {
   margin-right: auto;
@@ -105,9 +120,14 @@ html {
   }
 }
 .content {
-  min-height: calc(100vh - 100px);
-  min-height: fit-content;
+  min-height: calc(100vh - 78px);
+  background-color: $white;
+  color: $black;
 
+  &.dark {
+    background-color: $bg;
+    color: $text;
+  }
   .container {
     min-height: fit-content;
   }
@@ -140,6 +160,30 @@ html {
   }
   .navbar__row {
     column-gap: 90px;
+  }
+}
+.footer {
+  padding: 40px 0;
+  letter-spacing: normal;
+  background-color: $dark;
+  color: $white;
+  text-align: center;
+}
+p {
+  padding: 0;
+  margin: 1rem 0 0 0;
+}
+.footer__nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    margin: 0 1rem;
+    cursor: pointer;
+  }
+  img:hover {
+    transition: 0.2s;
+    transform: rotate(180deg);
   }
 }
 @media (max-width: 678px) {

@@ -1,0 +1,38 @@
+.contacts {
+  width: 100%;
+  row-gap: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    text-decoration: none;
+    @include fontS(12px, 4);
+    border: 3px solid $accent;
+    padding: 1rem;
+    border-radius: 30px;
+    color: $accent;
+  }
+  a:hover {
+    background-color: $accent;
+    color: $text;
+  }
+  h2 {
+    @include fontS(20px, 10);
+  }
+  p {
+    @include fontS(12px, 4);
+  }
+}
+.contacts-location {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 5px;
+
+  h2,
+  p {
+    margin: 0.2rem 0;
+  }
+}

@@ -10,33 +10,20 @@ import { Canvas, useLoader } from '@react-three/fiber'
 const DynamicThreeCanvas = dynamic(() => import('../components/Box'), {
   ssr: false, // Disable server-side rendering
 })
-import { Suspense, useEffect, useRef } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import Box from '../components/Box'
+import { useTypeSelector } from '../hooks/useTypeSelector'
+import { useAction } from '../hooks/useAction'
 
 const Index = () => {
-  const ref = useRef(null)
+  const { theme, loading, error } = useTypeSelector((state) => state.theme)
+  const { setTheme } = useAction()
 
-  // useEffect(() => {
-  //   window.addEventListener('click', () => {
-  //     if (ref !== null) {
-  //       console.log(ref.current.offsetTop)
-  //       console.log(window.scrollY)
-  //     }
-  //   })
-
-  //   return function () {
-  //     window.removeEventListener('click', () => {})
-  //   }
-  // }, [])
-  // const [portfolio, pizza, electric] = useLoader(TextureLoader, [
-  //   'port.png',
-  //   'pizza.png',
-  //   'electronic.jpg',
-  // ])
+  console.log(theme)
 
   return (
     <RootLayout>
-      <div className="index">
+      <div className="index ">
         <div className="index__text">
           <h1>
             Hi my name is <strong>Leon</strong>{' '}
@@ -46,36 +33,53 @@ const Index = () => {
           <button>Download CV</button>
         </div>
       </div>
-      <div className="projects">
+      <div className={`projects ${!theme ? 'dark' : ''}`}>
         <div className="container">
-          {/* <h1>Projects</h1> */}
-          <div className="d">
-            <Suspense fallback={null}>
-              <Canvas>
-                <ambientLight intensity={5} />
-                <pointLight position={[10, 10, 10]} />
-                <DynamicThreeCanvas position={[0, 0, 0]} png="pizza.png" />
-              </Canvas>
-            </Suspense>
-          </div>
-          <div className="d">
-            <Suspense fallback={null}>
-              <Canvas>
-                <ambientLight intensity={5} />
-                <pointLight position={[10, 10, 10]} />
-                <DynamicThreeCanvas position={[0, 0, 0]} png="port.png" />
-              </Canvas>
-            </Suspense>
-          </div>
+          <h1>Projects</h1>
+          <div className="projects__list">
+            <div className="d">
+              <Suspense fallback={null}>
+                <Canvas>
+                  <ambientLight intensity={5} />
+                  <pointLight position={[10, 10, 10]} />
+                  <DynamicThreeCanvas
+                    position={[0, 0, 0]}
+                    png="pizza.png"
+                    proj={'pizza'}
+                  />
+                </Canvas>
+              </Suspense>
+              <strong>Pizzeria</strong>
+            </div>
+            <div className="d">
+              <Suspense fallback={null}>
+                <Canvas>
+                  <ambientLight intensity={5} />
+                  <pointLight position={[10, 10, 10]} />
+                  <DynamicThreeCanvas
+                    position={[0, 0, 0]}
+                    png="port.png"
+                    proj={'portfolio'}
+                  />
+                </Canvas>
+              </Suspense>
+              <strong>Portfolio</strong>
+            </div>
 
-          <div className="d">
-            <Suspense fallback={null}>
-              <Canvas>
-                <ambientLight intensity={5} />
-                <pointLight position={[10, 10, 10]} />
-                <DynamicThreeCanvas position={[0, 0, 0]} png="electronic.jpg" />
-              </Canvas>
-            </Suspense>
+            <div className="d">
+              <Suspense fallback={null}>
+                <Canvas>
+                  <ambientLight intensity={5} />
+                  <pointLight position={[10, 10, 10]} />
+                  <DynamicThreeCanvas
+                    position={[0, 0, 0]}
+                    png="electronic.jpg"
+                    proj={'electronics_store'}
+                  />
+                </Canvas>
+              </Suspense>
+              <strong>Electronics store</strong>
+            </div>
           </div>
         </div>
       </div>

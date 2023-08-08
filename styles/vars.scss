@@ -1,4 +1,17 @@
 $accent: #5c62ec;
+$white: #fff;
+$black: #000;
+$bg-black: #252526;
+$main-black: #272727;
+
+$dark: #171718;
+
+$text: $white;
+$bg: $bg-black;
+
+// $bg: var(#fff);
+// $text: var($white);
+
 $columns: 12;
 @mixin fontS($min, $max) {
   font-size: calc($min + $max * (100vw / 1280));

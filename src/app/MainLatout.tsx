@@ -6,16 +6,23 @@ export const metadata: Metadata = {
 }
 import moon from '../../public/Moon.svg'
 import sun from '../../public/Sun.svg'
-
 import Image from 'next/image'
-import { useState } from 'react'
+import git from '../../assets/gitHub.svg'
+import linkein from '../../assets/linkedIn.svg'
+import inst from '../../assets//instagram.svg'
+
+import { useAction } from '../../hooks/useAction'
+import { useTypeSelector } from '../../hooks/useTypeSelector'
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [check, setCheck] = useState(false)
+  const { theme, loading, error } = useTypeSelector((state) => state.theme)
+
+  const { setTheme } = useAction()
+
   return (
     <>
       <nav className="navbar">
@@ -28,23 +35,35 @@ export default function RootLayout({
             </div>
             <div
               onClick={() => {
-                setCheck(!check)
-                console.log(check)
+                setTheme(!theme)
               }}
-              className={`navbar__mode ${check ? 'navbar__mode--ligh' : ''}`}
+              className={`navbar__mode ${
+                theme ? 'navbar__mode--ligh' : 'navbar__mode--dark'
+              }`}
             >
               <Image src={sun} alt="" className="dark-mode" />
               <Image src={moon} alt="" className="light-mode" />
             </div>
             <div className="navbar__navigation">
-              <Link href={'/projects'}>Projects</Link>
+              <Link href={'/'}>Projects</Link>
               <Link href={'/skills'}>Skills</Link>
               <Link href={'/contacts'}>Contacts</Link>
             </div>
           </div>
         </div>
       </nav>
-      <div className="content">{children}</div>
+      <div className={`content ${theme ? 'dark' : ''}`}>{children}</div>
+
+      <footer>
+        <div className="footer">
+          <div className="footer__nav-link">
+            <Image src={git} alt="" className="dark-mode" />
+            <Image src={linkein} alt="" className="light-mode" />
+            <Image src={inst} alt="" className="light-mode" />
+          </div>
+          <p>All right`s reserved!</p>
+        </div>
+      </footer>
     </>
   )
 }

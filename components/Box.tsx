@@ -1,17 +1,21 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { Canvas, useLoader } from '@react-three/fiber'
+import { Canvas, Vector3, useLoader } from '@react-three/fiber'
 import { MeshStandardMaterial, TextureLoader } from 'three'
 import dynamic from 'next/dynamic'
 import { useFrame } from '@react-three/fiber'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 interface BoxProps {
-  position: any[]
+  position: Vector3 | undefined
   png: string
+  proj: string
 }
 
-const Box: React.FC<BoxProps> = ({ position, png }) => {
+const Box: React.FC<BoxProps> = ({ position, png, proj }) => {
   const ref = useRef()
   const [val, setVal] = useState(false)
+  const router = useRouter()
   // const texture = new TextureLoader().load('../public/pizza.png')
   // const f = new TextureLoader().load('../public/pizza.png')
   const texturecf = useLoader(TextureLoader, png)
@@ -23,11 +27,12 @@ const Box: React.FC<BoxProps> = ({ position, png }) => {
   }, [])
   return (
     <mesh
+      ref={ref}
       onPointerOver={() => setVal(true)}
       onPointerLeave={() => setVal(false)}
+      onClick={() => router.push(`/projects/${proj}`)}
       position={position}
-      ref={ref}
-      scale={3.5}
+      scale={val ? 3.7 : 3.5}
     >
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial map={texturecf} />
