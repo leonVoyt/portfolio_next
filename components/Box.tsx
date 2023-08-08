@@ -18,16 +18,16 @@ const Box: React.FC<BoxProps> = ({ position, png }) => {
   // console.log(texture)
   useFrame(() => {
     if (!val) {
-      ref.current.rotation.y += 0.01
+      ref.current.rotation.y += 0.008
     }
   }, [])
   return (
     <mesh
-      onPointerOver={() => setVal(!val)}
-      onPointerLeave={() => setVal(!val)}
+      onPointerOver={() => setVal(true)}
+      onPointerLeave={() => setVal(false)}
       position={position}
       ref={ref}
-      scale={val ? 1.4 : 1}
+      scale={3.5}
     >
       <boxGeometry args={[1, 1, 1]} />
       <meshStandardMaterial map={texturecf} />

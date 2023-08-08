@@ -66,6 +66,8 @@
     align-items: center;
     row-gap: 30px;
     justify-content: center;
+    position: relative;
+    flex-direction: row;
   }
 }
 .projects__item {
@@ -98,10 +100,15 @@
   }
 }
 .d {
-  height: 1000px;
-  position: absolute;
-  bottom: 0;
+  border: 1px solid white;
+  height: 300px;
+  max-width: 300px;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 @media (max-width: 420px) {
   .container {
     width: 100%;
@@ -110,5 +117,9 @@
     margin: 0 1rem;
     max-width: 300px;
     max-height: 300px;
+  }
+  .d {
+    height: 200px;
+    min-width: 0;
   }
 }

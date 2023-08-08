@@ -47,38 +47,36 @@ const Index = () => {
         </div>
       </div>
       <div className="projects">
-        <h1>Projects</h1>
         <div className="container">
-          <div className="projects__item" ref={ref}>
-            <div className="projects__item--image">
-              <Image src={pizza} alt="" />
-            </div>
-            <p>Pizzeria</p>
+          {/* <h1>Projects</h1> */}
+          <div className="d">
+            <Suspense fallback={null}>
+              <Canvas>
+                <ambientLight intensity={5} />
+                <pointLight position={[10, 10, 10]} />
+                <DynamicThreeCanvas position={[0, 0, 0]} png="pizza.png" />
+              </Canvas>
+            </Suspense>
           </div>
-          <div className="projects__item electronic">
-            <div className="projects__item--image">
-              <Image src={electronic} alt="" />
-            </div>
-            <p>electronic store</p>
+          <div className="d">
+            <Suspense fallback={null}>
+              <Canvas>
+                <ambientLight intensity={5} />
+                <pointLight position={[10, 10, 10]} />
+                <DynamicThreeCanvas position={[0, 0, 0]} png="port.png" />
+              </Canvas>
+            </Suspense>
           </div>
-          <div className="projects__item partfolio">
-            <div className="projects__item--image">
-              <Image src={partfolio} alt="" />
-            </div>
-            <p>partfolio</p>
-          </div>
-        </div>
-        <div className="d">
-          <Suspense fallback={null}>
-            <Canvas>
-              <ambientLight intensity={5} />
-              <pointLight position={[10, 10, 10]} />
-              <DynamicThreeCanvas position={[-2, 0, 0]} png="pizza.png" />
 
-              <DynamicThreeCanvas position={[0, 0, 0]} png="pizza.png" />
-              <DynamicThreeCanvas position={[2, 0, 0]} png="pizza.png" />
-            </Canvas>
-          </Suspense>
+          <div className="d">
+            <Suspense fallback={null}>
+              <Canvas>
+                <ambientLight intensity={5} />
+                <pointLight position={[10, 10, 10]} />
+                <DynamicThreeCanvas position={[0, 0, 0]} png="electronic.jpg" />
+              </Canvas>
+            </Suspense>
+          </div>
         </div>
       </div>
     </RootLayout>
