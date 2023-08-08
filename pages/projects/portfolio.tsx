@@ -14,7 +14,7 @@ const portfolio = () => {
       <div className="container">
         <div className="project">
           <div className="text">
-            <h1>Pizzeria Lacavarna</h1>
+            <h1>Portfolio</h1>
           </div>
           <div className="image">
             <Image src={port} alt="" className="project-image" />

@@ -13,7 +13,7 @@ const electronics_store = () => {
       <div className="container">
         <div className="project">
           <div className="text">
-            <h1>Pizzeria Lacavarna</h1>
+            <h1>Electronics store</h1>
           </div>
           <div className="image">
             <Image src={electr} alt="" className="project-image" />
