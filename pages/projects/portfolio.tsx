@@ -22,8 +22,10 @@ const portfolio = () => {
           <div className="skills">
             <h2>Skills:</h2>
             <ul>
-              <li>CSS/CSS modules</li>
+              <li>SCSS</li>
               <li>TypeScript</li>
+              <li>Next.JS</li>
+              <li>React Three Fiber (3d)</li>
               <li>React.TSx</li>
               <li>Redux ToolKit</li>
               <li>figma</li>
