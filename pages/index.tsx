@@ -4,10 +4,14 @@ import pizza from '../assets/Desktop - 1 (2).png'
 import electronic from '../assets/electronic.jpg'
 import partfolio from '../assets/Main (3).png'
 import dynamic from 'next/dynamic'
+import { MeshStandardMaterial, TextureLoader } from 'three'
+import { Canvas, useLoader } from '@react-three/fiber'
 
+const DynamicThreeCanvas = dynamic(() => import('../components/Box'), {
+  ssr: false, // Disable server-side rendering
+})
 import { Suspense, useEffect, useRef } from 'react'
 import Box from '../components/Box'
-import { Canvas, useLoader } from '@react-three/fiber'
 
 const Index = () => {
   const ref = useRef(null)
@@ -64,13 +68,15 @@ const Index = () => {
             <p>partfolio</p>
           </div>
         </div>
-        <div className="3d">
+        <div className="d">
           <Suspense fallback={null}>
             <Canvas>
-              <ambientLight intensity={3} />
+              <ambientLight intensity={5} />
               <pointLight position={[10, 10, 10]} />
+              <DynamicThreeCanvas position={[-2, 0, 0]} png="pizza.png" />
 
-              <Box position={[0, 0, 0]} />
+              <DynamicThreeCanvas position={[0, 0, 0]} png="pizza.png" />
+              <DynamicThreeCanvas position={[2, 0, 0]} png="pizza.png" />
             </Canvas>
           </Suspense>
         </div>

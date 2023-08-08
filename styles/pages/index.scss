@@ -97,7 +97,11 @@
     border-radius: 20px;
   }
 }
-
+.d {
+  height: 1000px;
+  position: absolute;
+  bottom: 0;
+}
 @media (max-width: 420px) {
   .container {
     width: 100%;
