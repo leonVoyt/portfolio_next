@@ -4,6 +4,7 @@ import React from 'react'
 import port from '../../assets/Main (3).png'
 import { useTypeSelector } from '../../hooks/useTypeSelector'
 import git from '../../assets/gitHub-black.svg'
+import Link from 'next/link'
 
 const portfolio = () => {
   const { theme, loading, error } = useTypeSelector((state) => state.theme)
@@ -30,13 +31,15 @@ const portfolio = () => {
             </ul>
           </div>
           <div className={`links ${theme ? 'dark' : ''}`}>
-            <a href="https://github.com/leonVoyt/pizzeria" target="_blank">
+            <a
+              href="https://github.com/leonVoyt/portfolio_next"
+              target="_blank"
+            >
               <Image src={git} alt="" className="" />
               Link to github code
             </a>
-            <a href="https://leonvoyt.github.io/pizzeria/" target="_blank">
-              Live prototype project
-            </a>
+
+            <Link href={'/'}>Live prototype project</Link>
           </div>
         </div>
       </div>

@@ -57,9 +57,23 @@ export default function RootLayout({
       <footer>
         <div className="footer">
           <div className="footer__nav-link">
-            <Image src={git} alt="" className="dark-mode" />
-            <Image src={linkein} alt="" className="light-mode" />
-            <Image src={inst} alt="" className="light-mode" />
+            <Link href={'https://github.com/leonVoyt'} target="_blank">
+              <Image src={git} alt="" className="dark-mode" />
+            </Link>
+            <Link
+              href={
+                'https://www.linkedin.com/in/%D0%BB%D0%B5%D0%BE%D0%BD-%D0%B2%D0%BE%D0%B9%D1%82%D0%BA%D0%B5%D0%B2%D0%B8%D1%87%D1%83%D1%81-6b4627279/'
+              }
+              target="_blank"
+            >
+              <Image src={linkein} alt="" className="light-mode" />
+            </Link>
+            <Link
+              href={'https://www.instagram.com/leo_vtkvchs/'}
+              target="_blank"
+            >
+              <Image src={inst} alt="" className="light-mode" />
+            </Link>
           </div>
           <p>All right`s reserved!</p>
         </div>
