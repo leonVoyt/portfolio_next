@@ -22,6 +22,7 @@ h1 {
   @include fontS(30px, 30);
   text-align: center;
   margin: 0;
+  padding-top: 1rem;
 }
 .navbar {
   border-bottom: 1px solid #26292d;
@@ -123,13 +124,18 @@ h1 {
   min-height: calc(100vh - 78px);
   background-color: $white;
   color: $black;
-
   &.dark {
     background-color: $bg;
     color: $text;
   }
   .container {
     min-height: fit-content;
+  }
+}
+
+@media (max-width: 678px) {
+  .navbar__navigation {
+    margin-right: auto;
   }
 }
 @media (max-width: 520px) {
@@ -151,7 +157,7 @@ h1 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    row-gap: 10px;
+    row-gap: 15px;
     align-items: flex-start;
     column-gap: 0;
     & > a:hover {
@@ -184,10 +190,5 @@ p {
   img:hover {
     transition: 0.2s;
     transform: rotate(180deg);
-  }
-}
-@media (max-width: 678px) {
-  .navbar__navigation {
-    margin-right: auto;
   }
 }

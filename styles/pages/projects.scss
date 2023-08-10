@@ -85,16 +85,11 @@
 @media (max-width: 676px) {
   .image {
     img {
-      min-height: 300px;
+      min-height: 200px;
     }
   }
 }
 @media (max-width: 420px) {
-  .image {
-    img {
-      min-height: 100px;
-    }
-  }
   .links {
     flex-direction: column;
     a {

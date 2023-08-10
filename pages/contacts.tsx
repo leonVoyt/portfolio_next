@@ -12,7 +12,7 @@ const contacts = () => {
           </div>
           <div className="contacts-location">
             <h2>Location</h2>
-            <p>Kiev Ukraine</p>
+            <p>Kyiv Ukraine</p>
           </div>
           <div className="contacts-location">
             <h2>Telegtam</h2>
