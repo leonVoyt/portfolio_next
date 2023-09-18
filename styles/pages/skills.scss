@@ -13,8 +13,29 @@
   align-items: flex-start;
   justify-content: space-around;
   margin-bottom: 3rem;
+
+  transition: 1s;
   ul {
     @include fontS(14px, 6);
+    li {
+      opacity: 0;
+      padding-bottom: 0.4rem;
+      &._active {
+        opacity: 1;
+      }
+      @for $var from 1 to 12 {
+        $start: 0.5;
+        $delay: $var * 0.2;
+        &:nth-child(#{$var}) {
+          @if $var==1 {
+            transition: opacity 0.8s ease #{$start + s};
+          } @else {
+            transition: opacity 0.8s ease #{$start + $delay + s};
+          }
+        }
+      }
+      transition: all 1s ease 1s;
+    }
   }
 }
 @media (max-width: 546px) {
