@@ -7,7 +7,7 @@ import git from '../../assets/gitHub-black.svg'
 import Link from 'next/link'
 
 const portfolio = () => {
-  const { theme, loading, error } = useTypeSelector((state) => state.theme)
+  const { theme } = useTypeSelector((state) => state.theme)
 
   return (
     <RootLayout>

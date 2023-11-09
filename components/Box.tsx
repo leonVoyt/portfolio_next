@@ -1,15 +1,7 @@
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  Ref,
-  MutableRefObject,
-} from 'react'
-import { Canvas, Vector3, useLoader } from '@react-three/fiber'
-import { MeshStandardMaterial, TextureLoader, Mesh } from 'three'
-import dynamic from 'next/dynamic'
+import React, { useRef, useState } from 'react'
+import { Vector3, useLoader } from '@react-three/fiber'
+import { TextureLoader, Mesh } from 'three'
 import { useFrame } from '@react-three/fiber'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 interface BoxProps {
@@ -22,10 +14,8 @@ const Box: React.FC<BoxProps> = ({ position, png, proj }) => {
   const ref = useRef<Mesh>(null)
   const [val, setVal] = useState(false)
   const router = useRouter()
-  // const texture = new TextureLoader().load('../public/pizza.png')
-  // const f = new TextureLoader().load('../public/pizza.png')
+
   const texturecf = useLoader(TextureLoader, png)
-  // console.log(texture)
   useFrame(() => {
     if (!val && ref.current) {
       ref.current.rotation.y += 0.008

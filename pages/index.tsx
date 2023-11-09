@@ -7,7 +7,7 @@ const DynamicThreeCanvas = dynamic(() => import('../components/Box'), {
 import { Suspense } from 'react'
 import { useTypeSelector } from '../hooks/useTypeSelector'
 const Index = () => {
-  const { theme, loading, error } = useTypeSelector((state) => state.theme)
+  const { theme } = useTypeSelector((state) => state.theme)
 
   return (
     <RootLayout>
@@ -16,7 +16,7 @@ const Index = () => {
           <h1 className="_active__animation">
             Hi my name is <strong>Leon</strong>{' '}
           </h1>
-          <p className="_active__animation">a frontend developer</p>
+          <p className="_active__animation">a WEB developer</p>
           <span className="_active__animation">
             with passion for learning and creating.
           </span>
@@ -67,12 +67,12 @@ const Index = () => {
                   <pointLight position={[10, 10, 10]} />
                   <DynamicThreeCanvas
                     position={[0, 0, 0]}
-                    png="electronic.jpg"
-                    proj={'electronics_store'}
+                    png="test.jpg"
+                    proj={'weather'}
                   />
                 </Canvas>
               </Suspense>
-              <strong>Electronics store</strong>
+              <strong>Weather</strong>
             </div>
           </div>
         </div>
