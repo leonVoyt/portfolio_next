@@ -1,20 +1,20 @@
-import RootLayout from '../src/app/MainLatout'
-import dynamic from 'next/dynamic'
-import { Canvas } from '@react-three/fiber'
-const DynamicThreeCanvas = dynamic(() => import('../components/Box'), {
+import RootLayout from "../src/app/MainLatout";
+import dynamic from "next/dynamic";
+import { Canvas } from "@react-three/fiber";
+const DynamicThreeCanvas = dynamic(() => import("../components/Box"), {
   ssr: false, // Disable server-side rendering
-})
-import { Suspense } from 'react'
-import { useTypeSelector } from '../hooks/useTypeSelector'
+});
+import { FC, Suspense } from "react";
+import { useTypeSelector } from "../hooks/useTypeSelector";
 const Index = () => {
-  const { theme } = useTypeSelector((state) => state.theme)
+  const { theme } = useTypeSelector((state) => state.theme);
 
   return (
     <RootLayout>
       <div className="index ">
         <div className="index__text">
           <h1 className="_active__animation">
-            Hi my name is <strong>Leon</strong>{' '}
+            Hi my name is <strong>Leon</strong>{" "}
           </h1>
           <p className="_active__animation">a WEB developer</p>
           <span className="_active__animation">
@@ -27,11 +27,19 @@ const Index = () => {
           </a>
         </div>
       </div>
-      <div className={`projects ${!theme ? 'dark' : ''} `}>
+      <div className={`projects ${!theme ? "dark" : ""} `}>
         <div className="container">
           <h1>Projects</h1>
           <div className="projects__list">
-            <div className="d">
+            {projArray.map((proj) => (
+              <ProjCard
+                label={proj.label}
+                png={proj.png}
+                projName={proj.projName}
+                key={proj.id}
+              />
+            ))}
+            {/* <div className="d">
               <Suspense fallback={null}>
                 <Canvas>
                   <ambientLight intensity={5} />
@@ -39,7 +47,7 @@ const Index = () => {
                   <DynamicThreeCanvas
                     position={[0, 0, 0]}
                     png="pizza.png"
-                    proj={'pizza'}
+                    proj={"pizza"}
                   />
                 </Canvas>
               </Suspense>
@@ -53,7 +61,7 @@ const Index = () => {
                   <DynamicThreeCanvas
                     position={[0, 0, 0]}
                     png="port.png"
-                    proj={'portfolio'}
+                    proj={"portfolio"}
                   />
                 </Canvas>
               </Suspense>
@@ -68,17 +76,71 @@ const Index = () => {
                   <DynamicThreeCanvas
                     position={[0, 0, 0]}
                     png="test.jpg"
-                    proj={'weather'}
+                    proj={"weather"}
                   />
                 </Canvas>
               </Suspense>
               <strong>Weather</strong>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
     </RootLayout>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;
+
+const projArray = [
+  {
+    id: 1,
+    png: "port.png",
+    label: "Portfolio",
+    projName: "portfolio",
+  },
+  {
+    id: 2,
+    png: "test.jpg",
+    label: "Weather",
+    projName: "weather",
+  },
+  {
+    id: 3,
+    png: "transportation.png",
+    label: "Transportation",
+    projName: "transportation",
+  },
+  {
+    id: 4,
+    png: "menegerHelper.png",
+    label: "Maneger Helper",
+    projName: "manegerHelper",
+  },
+  {
+    id: 5,
+    png: "dailyPlaner.png",
+    label: "Daily Planer",
+    projName: "dailyPlaner",
+  },
+];
+
+const ProjCard: FC<ProjCardProps> = ({ png, projName, label }) => {
+  return (
+    <div className="d">
+      <Suspense fallback={null}>
+        <Canvas>
+          <ambientLight intensity={5} />
+          <pointLight position={[10, 10, 10]} />
+          <DynamicThreeCanvas position={[0, 0, 0]} png={png} proj={projName} />
+        </Canvas>
+      </Suspense>
+      <strong>{label}</strong>
+    </div>
+  );
+};
+
+type ProjCardProps = {
+  png: string;
+  projName: string;
+  label: string;
+};
