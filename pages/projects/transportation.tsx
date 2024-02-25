@@ -5,7 +5,7 @@ import { useTypeSelector } from "../../hooks/useTypeSelector";
 import git from "../../assets/gitHub-black.svg";
 import pizzaI from "../../public/transportation.png";
 
-const Transportation = ({ props }) => {
+const Transportation = () => {
   const { theme } = useTypeSelector((state) => state.theme);
 
   return (
